@@ -1,0 +1,61 @@
+<div class="cabinet enter"  *ngIf='!enterVisibility'>
+  <button mat-icon-button class="btn-clear" (click)='enterVisibility=!enterVisibility'>
+    <i class="material-icons"> clear </i>
+  </button>
+  <h3>Вход в личный кабинет</h3>
+  <div class="authorization">
+
+    <form action="" #userForm='ngForm' name='userForm'>
+
+      <mat-form-field class="example-form-field">
+
+        <input matInput type="email" placeholder="Email" [(ngModel)]="value" name="email" class="email" required
+          pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" matTooltip="* Обязательное поле">
+
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <i class="material-icons"> clear </i>
+        </button>
+
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+
+        <input matInput [type]="hide ? 'text' : 'password'" placeholder="Пароль" name="password" #password='ngModel'
+          [(ngModel)]="password.value" class="password" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]{1,20}$"
+          matTooltip="* Обязательное поле">
+
+        <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</i>
+
+      </mat-form-field>
+
+    </form>
+
+  </div>
+ <button mat-raised-button class="btn-enter" color="primary" [disabled]='!userForm.form.valid||!password.valid'>Войти</button>
+  <div class="info">
+    <a mat-raised-button routerLink="."
+     matTooltip="Нажмите,чтобы узнать подробнее о возможностях личного кабинета и получить доступ  "
+     aria-label="Link that displays a tooltip when focused or hovered over">Подробнее</a>
+  </div>
+</div>
+
+<div class="cabinet closed" *ngIf='enterVisibility'>
+    <button mat-icon-button class="btn-clear" (click)='enterVisibility=!enterVisibility'>
+        <i class="material-icons"> clear </i>
+      </button>
+  <h3>ИНФОРМАЦИЯ ДОСТУПНА ТОЛЬКО КЛИЕНТАМ КЛИНИКИ</h3>
+  <div class="todo">
+      Чтобы активировать <span>Ваш кабинет</span> необходимо:
+      <ol>
+        <li>Прийти к нам в клинику.</li>
+        <li>Завести карту на ребенка.</li>
+      </ol>
+  </div>
+  <button mat-raised-button class="btn-enter" color="primary" (click)='enterVisibility=false'>Войти</button>
+  <div class="info">
+    <a mat-raised-button routerLink="."
+     matTooltip="Нажмите,чтобы узнать подробнее о возможностях личного кабинета и получить доступ  "
+     aria-label="Link that displays a tooltip when focused or hovered over">Подробнее</a>
+  </div>
+
+</div>

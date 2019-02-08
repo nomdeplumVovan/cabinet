@@ -1,0 +1,73 @@
+// $primary:#3f51b5;
+$primary:green;
+
+
+.cabinet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: john, sans-serif;
+  background-color: rgb(247, 247, 247);
+  box-sizing: border-box;
+
+  border-radius: 5%;
+  border: 2px solid $primary;
+
+  width: 320px;
+  height: 400px;
+  margin: 50px 0;
+  padding-bottom: 20px;
+
+  h3 {
+    color: rgb(107, 98, 98);
+    text-align: center;
+  }
+
+  .btn-clear {
+    align-self: flex-end;
+  }
+
+  .authorization {
+    width: 80%;
+
+    .example-form-field {
+      width: 260px;
+    }
+
+    .material-icons {
+      font-size: 18px;
+      color: rgb(107, 98, 98);
+    }
+  }
+
+  .btn-enter {
+    margin: 20px 0 40px;
+  }
+
+  @media (max-width: 320px) {
+    width: 310px;
+  }
+
+  .info {
+    a {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.closed {
+  .todo {
+    text-align: center;
+
+    span {
+      font-weight: bold;
+      color: $primary;
+    }
+
+    ol {
+      text-align: left;
+    }
+  }
+}
